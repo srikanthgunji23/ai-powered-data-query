@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Data Query</title>
+    <link rel="stylesheet" href="..\css\interface.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo"> <!-- Added logo div -->
+                <img src="college copy.jpg" alt="Logo">
+            </div>
+            <div class="profile"> <!-- Updated profile div -->
+                <img src="students.jpg" alt="Profile Picture">
+            </div>
+            <h1 style="align-items: center;">AI Data Query Interface</h1>
+            <nav>
+                <ul>
+                    <li><a href="about.html" style="padding-left: 0px;">About</a></li>
+                    <li><a href="techniques.html" style="padding-left: 20px;">Techniques</a></li>
+                    <li><a href="resourses.html" style="padding-left: 40px;">Resources</a></li>
+                    <li><a href="contact.html" style="padding-left: 60px;">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <main>
+        <div class="container">
+            <div class="hero">
+                <h1>AI Data Query Interface</h1>
+                <p>With AI Data Query, you can easily fetch and visualize data using various techniques.</p>
+                <div class="actions">
+                    <button class="primary">Try for Free</button>
+                    <button class="secondary">Contact Sales</button>
+                </div>
+            </div>
+            <div class="query-options">
+                <div class="option">
+                    <label for="job-roles">Job Roles</label>
+                    <select id="job-roles">
+                        <option value="data-scientist">Project Manager</option>
+                        <option value="nlp-engineer">NLP Engineer</option>
+                        <option value="data-scientist">Data Scientist</option>
+                        <option value="dba">DBA (Database Administrator)</option>
+                        <option value="security-specialist">Security Specialist</option>
+                        <option value="qa-engineer">QA Engineer</option>
+                        <option value="ux-ui-designer">UX/UI Designer</option>
+                    </select>
+                </div>
+                <div class="option">
+                    <label for="data-types">Data</label>
+                    <select id="data-types">
+                        <option value="progress">Progress</option>
+                        <option value="user-queries">User Queries</option>
+                        <option value="schema">Schema</option>
+                        <option value="user-preferences">User Preferences</option>
+                        <option value="domain-data">Domain Data</option>
+                        <option value="integrity">Integrity</option>
+                        <option value="feedback">Feedback</option>
+                        <option value="usability">Usability</option>
+                    </select>
+                </div>
+                <div class="option">
+                    <label for="date-range">Duration</label>
+                    <input type="text" id="date-range" placeholder="Select Date Range">
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <div class="container search-bar">
+            <input type="text" id="search-input" placeholder="Search...">
+            <button type="submit" onclick="performSearch()">Search</button>
+            <button type="button" onclick="startVoiceRecognition()">🎤</button>
+        </div>
+    </footer>
+
+    <!-- User Info Modal -->
+    <div id="user-info-modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeUserInfo()">&times;</span>
+            <h2>User Information</h2>
+            <p><strong>Username:</strong> John Doe</p>
+            <p><strong>Email ID:</strong> johndoe@example.com</p>
+            <p><strong>Role:</strong> Data Scientist</p>
+            <p><strong>Company:</strong> Example Corp</p>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/moment/min/moment.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+    <script src="scripts.js"></script>
+    <script>
+        $(function() {
+            $('#date-range').daterangepicker({
+                opens: 'left',
+                locale: {
+                    format: 'MMM D, YYYY'
+                },
+                singleDatePicker: false, // Disable single date picker
+                showDropdowns: true, // Show dropdowns for month and year selection
+                autoApply: true, // Automatically apply date range selection
+                ranges: {
+                    'Today': [moment(), moment()],
+                    'Yesterday': [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
+                    'Last 7 Days': [moment().subtract(6, 'days'), moment()],
+                    'Last 30 Days': [moment().subtract(29, 'days'), moment()],
+                    'This Month': [moment().startOf('month'), moment().endOf('month')],
+                    'Last Month': [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')]
+                },
+                startDate: moment().subtract(29, 'days'),
+                endDate: moment()
+            });
+        });
+    </script>
+</body>
+</html>

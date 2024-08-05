@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Login Page</title>
+<style>
+body {
+  font-family: Arial, sans-serif;
+  background-color: #c3ecdd; /* added background color */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-image: url('students.jpg');
+  background-size: cover;
+}
+
+.container {
+  background-color: #ecf5f4;
+  padding: 50px; /* increased padding to make the container larger */
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+ 
+  width: 400px; /* set a fixed width for the container */
+}
+
+h1 {
+  color: #333;
+  font-size: 35px;
+  text-align: center; /* increased font size for the heading */
+}
+
+input[type="text"],
+input[type="password"] {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+  border-radius: 4px;
+}
+
+button {
+  background-color: #4CAF50;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  border-radius: 4px;
+}
+
+button:hover {
+  background-color: #45a049;
+}
+
+.google-btn {
+  background-color: #dd4b39;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  border-radius: 4px;
+}
+
+.google-btn:hover {
+  background-color: #c1392b;
+}
+</style>
+</head>
+<body>
+<div class="container">
+  <h1>Login</h1>
+  <form id="login-form">
+    <label for="email">Email:</label><br>
+    <input type="text" id="email" name="email" placeholder="Enter your email"><br>
+    <label for="password">Password:</label><br>
+    <input type="password" id="password" name="password" placeholder="Enter your password"><br><br>
+    <button type="submit" name="submit">Submit</button>
+  </form>
+  <button class="google-btn" >Login with Google</button>
+  <p>Don't have an account? <a href="signup.html">Sign up</a></p>
+</div>
+<script>
+  document.getElementById('login-form').addEventListener('submit', function(event) {
+    event.preventDefault();
+    window.location.href = 'interface.html';
+  });
+</script>
+
+</body>
+</html>
